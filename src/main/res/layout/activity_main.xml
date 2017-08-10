@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="13dp"
+    tools:context="com.example.maurya.stonepaper.MainActivity">
+
+
+    <TextView
+        android:id="@+id/tv_HumanChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Human Choice"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/iv_HumanChoice"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/tv_HumanChoice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/rock"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <TextView
+        android:id="@+id/tv_ComputerChoise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_HumanChoice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Computer Choice"
+        android:textSize="20dp"/>
+
+
+    <ImageView
+        android:id="@+id/iv_ComputerChoice"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/rock"
+
+        android:layout_below="@+id/tv_ComputerChoise"
+        android:layout_alignLeft="@+id/iv_HumanChoice"
+        android:layout_alignStart="@+id/iv_HumanChoice"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:inputType="textPersonName"
+        android:text="Score: Human = 0 Computer = 0"
+        android:textSize="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/iv_ComputerChoice"
+        android:layout_alignLeft="@+id/iv_ComputerChoice"
+        android:layout_alignStart="@+id/iv_ComputerChoice" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    <Button
+        android:id="@+id/b_rock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="rock"
+        android:layout_weight=".4"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="15dp"
+        android:background="#e7db30"/>
+
+    <Button
+        android:id="@+id/b_paper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Paper"
+        android:layout_weight=".4"
+        android:layout_marginRight="11dp"
+        android:background="#4cec28"
+        />
+
+    <Button
+        android:id="@+id/b_scissors  "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_weight=".4"
+        android:text="Scissor"
+        android:layout_marginRight="15dp"
+        android:background="#c530e7"/>
+
+</LinearLayout>
+</RelativeLayout>
