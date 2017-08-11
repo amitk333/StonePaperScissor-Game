@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_score;
     ImageView iv_ComputerChoice,iv_HumanChoice;
 
-    int HumanScore , ComputerScore =0;
+    int HumanScore =0, ComputerScore =0;
 
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 iv_HumanChoice.setImageResource(R.drawable.rock);
                 String message = play_turn("rock");
                 Toast.makeText(MainActivity.this,message,Toast.LENGTH_SHORT).show();
+                score();
                 tv_score.setText("Score: Human ="+Integer.toString(HumanScore)+"Computer ="+Integer.toString(ComputerScore));
 
             }
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 iv_HumanChoice.setImageResource(R.drawable.paper);
                 String message =  play_turn("paper");
                 Toast.makeText(MainActivity.this,message,Toast.LENGTH_SHORT).show();
+                score();
                 tv_score.setText("Score: Human ="+Integer.toString(HumanScore)+"Computer ="+Integer.toString(ComputerScore));
             }
 
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 iv_HumanChoice.setImageResource(R.drawable.scissors);
                String message= play_turn("scissors");
                 Toast.makeText(MainActivity.this,message,Toast.LENGTH_SHORT).show();
+                score();
                 tv_score.setText("Score: Human ="+Integer.toString(HumanScore)+"Computer ="+Integer.toString(ComputerScore));
 
             }
@@ -105,8 +108,38 @@ public class MainActivity extends AppCompatActivity {
                 iv_ComputerChoice.setImageResource(R.drawable.paper);
             }
 
+            //Determine who won
+            if(computerchoice == player_choice){
+                return "Draw Nobody Won..";
+            }else if(player_choice == "rock" && computerchoice == "scissors"){
+                HumanScore++;
+                return "Rock crushes scissor. You win!!";
+            }else if(player_choice == "rock" && computerchoice == "paper"){
+                ComputerScore++;
+                return "Paper covers rock. Computer win!!";
+            }else if(player_choice == "scissors" && computerchoice == "rock"){
+                ComputerScore++;
+                return "Rock crushes Scissor. Computer win!!";
+            }else if(player_choice == "scissors" && computerchoice == "paper"){
+                HumanScore++;
+                return "Scissor cuts paper. you win!!";
+            }else if(player_choice == "paper" && computerchoice == "rock"){
+                HumanScore++;
+                return "Paper covers rock. You win!!";
+            }else if(player_choice == "paper" && computerchoice == "scissors") {
+                ComputerScore++;
+                return "Scissor cuts paper. Computer win!!";
+            }
+            else
+                return "Not Sure";
 
-        if(HumanScore == 5){
+
+
+
+}
+    public void score(){
+        
+     if(HumanScore == 5){
             new AlertDialog.Builder(this)
                     .setMessage("You Win!!!!!")
                    // .setCancelable(false)
@@ -139,38 +172,9 @@ public class MainActivity extends AppCompatActivity {
          //   String message= play_turn("scissors");
           //  Toast.makeText(MainActivity.this,message,Toast.LENGTH_SHORT).show();
             tv_score.setText("Score: Human =0  Computer =0");
-
-
         }
-
-            //Determine who won
-            if(computerchoice == player_choice){
-                return "Draw Nobody Won..";
-            }else if(player_choice == "rock" && computerchoice == "scissors"){
-                HumanScore++;
-                return "Rock crushes scissor. You win!!";
-            }else if(player_choice == "rock" && computerchoice == "paper"){
-                ComputerScore++;
-                return "Paper covers rock. Computer win!!";
-            }else if(player_choice == "scissors" && computerchoice == "rock"){
-                ComputerScore++;
-                return "Rock crushes Scissor. Computer win!!";
-            }else if(player_choice == "scissors" && computerchoice == "paper"){
-                HumanScore++;
-                return "Scissor cuts paper. you win!!";
-            }else if(player_choice == "paper" && computerchoice == "rock"){
-                HumanScore++;
-                return "Paper covers rock. You win!!";
-            }else if(player_choice == "paper" && computerchoice == "scissors") {
-                ComputerScore++;
-                return "Scissor cuts paper. Computer win!!";
-            }
-            else
-                return "Not Sure";
-
-
-
-
-}
+      
+    }
+    
 
 }
